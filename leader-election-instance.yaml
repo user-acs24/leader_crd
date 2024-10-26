@@ -1,0 +1,12 @@
+apiVersion: example.com/v1
+kind: LeaderElection
+metadata:
+  name: my-leader-election
+  namespace: default
+spec:
+  serviceAccountName: leader-election-sa
+  roleName: leader-election-role
+  roleBindingName: leader-election-rolebinding
+  image: acs23/k8s-leader-election
+  replicas: 3
+  namespace: default

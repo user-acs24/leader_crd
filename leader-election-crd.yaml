@@ -1,0 +1,36 @@
+apiVersion: apiextensions.k8s.io/v1
+kind: CustomResourceDefinition
+metadata:
+  name: leaderelections.example.com
+spec:
+  group: example.com
+  versions:
+    - name: v1
+      served: true
+      storage: true
+      schema:
+        openAPIV3Schema:
+          type: object
+          properties:
+            spec:
+              type: object
+              properties:
+                serviceAccountName:
+                  type: string
+                roleName:
+                  type: string
+                roleBindingName:
+                  type: string
+                image:
+                  type: string
+                replicas:
+                  type: integer
+                namespace:
+                  type: string
+  scope: Namespaced
+  names:
+    plural: leaderelections
+    singular: leaderelection
+    kind: LeaderElection
+    shortNames:
+    - le
